@@ -1,7 +1,7 @@
 import { Server } from "socket.io";
 
 const io = new Server(3000);
-let [countArg, nodeID] = process.argv.slice(2)
+let [countArg, nodeID] = process.argv.slice(2);
 let count = parseInt(countArg) || 0;
 
 io.on("connection", function (socket) {
@@ -11,14 +11,15 @@ io.on("connection", function (socket) {
     socket.emit("clientEvent", {
       count: count, // 0,1,2,3,4 ...
       appID: "Sender",
-      nodeID: nodeID || 'Main',
+      nodeID: nodeID || "Main",
     });
+
     count++;
+
     // arbitrary error to demonstrate app interruption
     if (count === 10) {
       throw new Error();
     }
-
   }, 1000);
 });
 
@@ -31,8 +32,10 @@ const hanndleAppErrors = (error) => {
   });
 };
 
-// io.on("connect_failed", hanndleAppErrors);
-// io.on("error", hanndleAppErrors);
-// io.on("disconnect", hanndleAppErrors);
-
+// listen to various error events and handle appropriately
 process.on("uncaughtException", hanndleAppErrors);
+process.on("uncaughtRejection", hanndleAppErrors);
+
+// OS events
+process.on("SIGTERM", hanndleAppErrors); // service stopped
+process.on("SIGINT", hanndleAppErrors); // process interrupted

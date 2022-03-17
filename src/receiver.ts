@@ -7,6 +7,7 @@ socket.on("connect", function () {
   console.log("connected to localhost:3000");
 });
 
+// receive emitted count messages from server
 socket.on("clientEvent", function (data) {
   console.log(data);
 });
