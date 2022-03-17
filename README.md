@@ -55,6 +55,8 @@ Build Project (this transpiles ts files into js)
 Start Project
 ```npm run pm2```
 
-## Monitor commands
-pm2 monit
-pm2 logs
+## Monitor terminal commands
+```pm2 monit``` monitor applications
+```pm2 logs``` display logs
+```pm2 flush``` clear logs
+```pm2 kill`` kill processes
