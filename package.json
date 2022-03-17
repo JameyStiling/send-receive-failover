@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "build": "rimraf dist && rollup -c rollup.config.js",
+    "sendIt": "node_modules/ts-node/dist/bin.js sender.ts",
+    "receiveIt": "node_modules/ts-node/dist/bin.js receiver.ts",
+    "pm2": "pm2 start dist/sender.js --watch"
+  },
+  "devDependencies": {
+    "@open-wc/building-rollup": "^2.0.1",
+    "rollup": "^2.70.0",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "@rollup/plugin-typescript": "^8.3.1",
+    "pm2": "^5.2.0",
+    "socket.io": "^4.4.1",
+    "socket.io-client": "^4.4.1",
+    "ts-node": "^10.7.0"
+  },
+  "type": "module"
+}
