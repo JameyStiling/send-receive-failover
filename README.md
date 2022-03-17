@@ -43,3 +43,18 @@ And following restrictions:
 This project uses PM2, https://github.com/Unitech/pm2 process manager for node.js application.  PM2 is used here programmatically to provide the sender/receiver failover functionality.
 The sender and receiver apps take advantage of web sockets via Socket.IO.
 Socket.IO is a library providing full-duplex low-latency web sockets.
+
+## Run
+
+Requirements:
+npm, node, PM2
+
+Build Project (this transpiles ts files into js)
+```npm run build``` 
+
+Start Project
+```npm run pm2```
+
+## Monitor commands
+pm2 monit
+pm2 logs

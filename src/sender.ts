@@ -32,10 +32,5 @@ const hanndleAppErrors = (error) => {
   });
 };
 
-// listen to various error events and handle appropriately
+// listen to error events and handle appropriately
 process.on("uncaughtException", hanndleAppErrors);
-process.on("uncaughtRejection", hanndleAppErrors);
-
-// OS events
-process.on("SIGTERM", hanndleAppErrors); // service stopped
-process.on("SIGINT", hanndleAppErrors); // process interrupted

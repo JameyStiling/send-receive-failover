@@ -3,7 +3,7 @@
     "build": "rimraf dist && rollup -c rollup.config.js",
     "sendIt": "node_modules/ts-node/dist/bin.js sender.ts",
     "receiveIt": "node_modules/ts-node/dist/bin.js receiver.ts",
-    "pm2": "pm2 start dist/sender.js --watch"
+    "pm2": "node pm2Control.js"
   },
   "devDependencies": {
     "@open-wc/building-rollup": "^2.0.1",
