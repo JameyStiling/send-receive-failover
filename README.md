@@ -38,3 +38,8 @@ And following restrictions:
 - **nodeID** value is different for both the main and the failover, think about it as the host identifier
 - Failover should be fully automated
 - There **cannot** be two instances of the App running at the same time, meaning, there **cannot** be two messages received at the Receiver App with the same count and the same appID but different nodeID.
+
+## Background
+This project uses PM2, https://github.com/Unitech/pm2 process manager for node.js application.  PM2 is used here programmatically to provide the sender/receiver failover functionality.
+The sender and receiver apps take advantage of web sockets via Socket.IO.
+Socket.IO is a library providing full-duplex low-latency web sockets.
